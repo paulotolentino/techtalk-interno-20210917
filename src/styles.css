@@ -10,9 +10,14 @@ body {
   height: 100vh;
   overflow: hidden;
 }
-#root {
+#root,
+#app {
   width: 100%;
   height: 100%;
+}
+#app {
+  display: flex;
+  flex-direction: row;
 }
 #sidemenu {
   display: flex;
