@@ -7,7 +7,7 @@ function select_tab(id) {
     .forEach((item) => item.classList.add("selected"));
 }
 function load_content(id) {
-  require([`./src/Components/${id}`], function (component) {
+  require([`./src/Pages/${id}`], (component) => {
     document.querySelector("#content").innerText = "";
     document.querySelector("#content").appendChild(component);
   });
@@ -25,7 +25,7 @@ window.onload = (event) => {
   window["gallery"].addEventListener("click", (event) => push(event));
   window["contact"].addEventListener("click", (event) => push(event));
   window["help"].addEventListener("click", (event) => push(event));
-  require([`./src/Components/Home`], function (component) {
+  require([`./src/Pages/Home`], function (component) {
     document.querySelector("#content").innerText = "";
     document.querySelector("#content").appendChild(component);
   });

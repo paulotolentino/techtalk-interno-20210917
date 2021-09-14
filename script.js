@@ -14,13 +14,10 @@ const itens = [
   { label: "Help", id: "help" },
 ];
 
-itens.forEach(({ id, label, selected = false }) => {
-  const newItem = document.createElement("section");
-  newItem.innerText = label;
-  newItem.classList.add("route");
-  if (selected) newItem.classList.add("selected");
-  newItem.id = id;
-  sidemenu.appendChild(newItem);
+itens.forEach((item) => {
+  require(["./src/Components/MenuItem"], function (MenuItem) {
+    sidemenu.appendChild(MenuItem(item));
+  });
 });
 const app = document.getElementById("app");
 app.appendChild(sidemenu);
