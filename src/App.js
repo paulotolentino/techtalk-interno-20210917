@@ -21,8 +21,8 @@ define(function () {
     { label: "Help", id: "help" },
   ];
 
-  itens.forEach((item) => {
-    require(["./src/Components/MenuItem"], function (MenuItem) {
+  require(["./src/Components/MenuItem"], function (MenuItem) {
+    itens.forEach((item) => {
       sidemenu.appendChild(MenuItem(item));
     });
   });

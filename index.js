@@ -37,7 +37,7 @@ window.addEventListener("popstate", (event) => {
   load_content(stateId);
 });
 
-const root = document.getElementById("root");
+const root = document.querySelector("#root");
 // require([`./src/App`], function (App) {
 //   root.appendChild(App);
 // });
@@ -64,10 +64,9 @@ const itens = [
   { label: "Help", id: "help" },
 ];
 
-itens.forEach((item) => {
-  require(["./src/Components/MenuItem"], function (MenuItem) {
-    sidemenu.appendChild(MenuItem(item));
-  });
+require(["./src/Components/MenuItem"], function (MenuItem) {
+  const i = itens.map((item) => MenuItem(item));
+  sidemenu.append(...i);
 });
 app.appendChild(sidemenu);
 

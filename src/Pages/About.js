@@ -18,8 +18,7 @@ define(function () {
   postImg.innerText =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut tortor ullamcorper, feugiat purus ut, auctor mi.";
 
-  leftSide.appendChild(img);
-  leftSide.appendChild(postImg);
+  leftSide.append(img, postImg);
 
   const rightSide = document.createElement("div");
   rightSide.style.width = "70%";
@@ -33,13 +32,11 @@ define(function () {
     "Sed molestie ipsum quis magna eleifend pharetra. Duis accumsan erat fermentum euismod luctus. Aliquam lobortis gravida ipsum, ac tincidunt mi finibus eget. Proin sit amet nulla eget risus pretium tristique at a est. Suspendisse accumsan nulla ac tortor pulvinar facilisis. Suspendisse potenti. Duis nibh enim, mattis eu imperdiet posuere, efficitur ac erat. Fusce a auctor dui. Praesent dictum neque velit, ut commodo orci maximus et.",
   ];
 
-  paragraphs.forEach((text) => {
-    require(["./src/Components/Paragraph"], (Paragraph) => {
-      rightSide.appendChild(Paragraph(text));
-    });
+  require(["./src/Components/Paragraph"], (Paragraph) => {
+    const p = paragraphs.map((text) => Paragraph(text));
+    rightSide.append(...p);
   });
 
-  about.appendChild(leftSide);
-  about.appendChild(rightSide);
+  about.append(leftSide, rightSide);
   return about;
 });
